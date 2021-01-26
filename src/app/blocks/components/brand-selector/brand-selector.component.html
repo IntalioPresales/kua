@@ -1,0 +1,16 @@
+<mat-form-field appearance="outline" fxFlex="100">
+    <mat-label>Brand</mat-label>
+    <mat-select [formControl]="brandCtrl" placeholder="Brand" #brandSelect required>
+        <mat-option>
+            <ngx-mat-select-search [formControl]="brandFilterCtrl"></ngx-mat-select-search>
+        </mat-option>
+        <mat-option [value]="{id:''}">
+            None
+        </mat-option>
+        <mat-option *ngFor="let brand of filteredBrands | async" [value]="brand">
+            {{brand.brand}}
+        </mat-option>
+    </mat-select>
+    <mat-icon matSuffix class="secondary-text">assignment_turned_in</mat-icon>
+    <mat-error>Brand is required!</mat-error>
+</mat-form-field>

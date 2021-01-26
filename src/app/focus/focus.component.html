@@ -1,0 +1,195 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 " fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Focus</span>
+            </div>
+            <div class="h1 mt-16" fxLayout="row" fxLayoutAlign="space-between start">
+                Focus
+                <div class="ml-20" fxLayout="row" fxLayoutAlign="space-between center">
+                    <span class="steps-value" fxLayout="row" fxLayoutAlign="start center">75</span>
+                    <small style="font-size: 14px;width: 180px;">Steps in the right direction over the past 12 months.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+        <h1>Quarterly game plan</h1>
+
+        <div>
+
+            <div>
+
+                <!-- WIDGET 1 -->
+                <fuse-widget class="widget pl-0" fxLayout="column" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
+
+                    <!-- Front -->
+                    <div class="fuse-widget-front">
+                        <div class="pl-16 pr-8 py-16 h-52" fxLayout="row"
+                            fxLayoutAlign="space-between center">
+                            Q3 - 2020
+                        </div>
+
+                        <div class="pt-8 pb-32" fxLayout="column" fxLayoutAlign="center center">
+                            <div class="light-blue-fg font-size-72 line-height-72">
+                                {{AllCount}}
+                            </div>
+                            <div class="h3 secondary-text font-weight-500">Rocks
+                            </div>
+                        </div>
+
+                        <div class="p-16 border-top" fxLayout="row" fxLayoutAlign="start center">
+                            <span class="h4 secondary-text text-truncate">
+                                Achieved:
+                            </span>
+                            <span class="h4 ml-8">
+                                {{achievedPercentage}} %
+                            </span>
+                        </div>
+                    </div>
+                    <!-- / Front -->
+
+                </fuse-widget>
+                <!-- / WIDGET 1 -->
+
+                <!-- WIDGET 1 -->
+                <fuse-widget class="widget " fxLayout="column" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25">
+
+                    <!-- Front -->
+                    <div class="fuse-widget-front">
+                        <div class="pl-16 pr-8 py-16 h-52" fxLayout="row"
+                            fxLayoutAlign="space-between center">
+                            Leaders
+                        </div>
+
+                        <div class="pt-8 pb-32" fxLayout="column" fxLayoutAlign="center center">
+                            <div class="light-blue-fg font-size-72 line-height-72">
+                                3
+                            </div>
+                            <div class="h3 secondary-text font-weight-500">Leaders
+                            </div>
+                        </div>
+
+                        <div class="p-16 border-top" fxLayout="row" fxLayoutAlign="start center">
+                            <!-- <span class="h4 secondary-text text-truncate">
+                                Achieved:
+                            </span>
+                            <span class="h4 ml-8">
+                                {{achievedPercentage}} %
+                            </span> -->
+                        </div>
+                    </div>
+                    <!-- / Front -->
+
+                </fuse-widget>
+                <!-- / WIDGET 1 -->
+            </div>
+            <!-- FOCUS -->
+            <div>
+                <h2 class="custom-header">Focus</h2>
+                <div>
+                    <div class="example-container mat-elevation-z8">
+
+                        <mat-table #table [dataSource]="dataSource"
+                            cdkDropList
+                            [cdkDropListData]="dataSource"
+                            (cdkDropListDropped)="dropTable($event)">
+
+                            <ng-container matColumnDef="position">
+                                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                                <mat-cell *matCellDef="let element;">
+                                    <mat-icon style="pointer-events: all;color: #777;font-size: 22px;"
+                                        cdkDragHandle>reorder</mat-icon>
+                                </mat-cell>
+                            </ng-container>
+
+                            <!-- ROCKS -->
+                            <ng-container matColumnDef="rocks">
+                                <mat-header-cell *matHeaderCellDef>Company rocks</mat-header-cell>
+                                <mat-cell *matCellDef="let element;"> {{element.rocks}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Quarter -->
+                            <ng-container matColumnDef="quarter">
+                                <mat-header-cell *matHeaderCellDef> Q3 - 2020 </mat-header-cell>
+                                <mat-cell *matCellDef="let element;">
+                                    <mat-form-field floatLabel="never">
+                                        <input matInput placeholder="Quarter 2020" [value]="element.quarter" [(ngModel)]="element.quarter">
+                                    </mat-form-field>
+                                </mat-cell>
+                            </ng-container>
+
+                            <!-- WHO -->
+                            <ng-container matColumnDef="who">
+                                <mat-header-cell *matHeaderCellDef> WHO </mat-header-cell>
+                                <mat-cell *matCellDef="let element;">
+                                    <mat-form-field floatLabel="never" fxFlex="70">
+                                        <mat-select [(value)]="element.fav" placeholder="Select Employee">
+                                            <mat-option>-- Select Employee --</mat-option>
+                                            <mat-option value="John">John</mat-option>
+                                            <mat-option value="Steve">Steve</mat-option>
+                                            <mat-option value="Sarah">Sarah</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </mat-cell>
+                            </ng-container>
+
+
+                            <!-- completed -->
+                            <ng-container matColumnDef="completed">
+                                <mat-header-cell *matHeaderCellDef> Completed </mat-header-cell>
+                                <mat-cell *matCellDef="let element; index as i;">
+
+                                    <mat-slide-toggle class="pl-8" (change)="onCompletetChange($event,element.id)" [checked]="element.completed"></mat-slide-toggle>
+
+                                    <!-- <mat-form-field floatLabel="never" fxFlex="70">
+                                        <mat-select [(value)]="element.fav" placeholder="Favorite">
+                                            <mat-option>None</mat-option>
+                                            <mat-option value="Yes">Yes</mat-option>
+                                        </mat-select>
+                                    </mat-form-field> -->
+                                </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"
+                                cdkDrag [cdkDragData]="row"></mat-row>
+                        </mat-table>
+                    </div>
+                </div>
+            </div>
+            <!-- / FOCUS -->
+
+            <!-- ROCKS -->
+            <div class="mt-36">
+                <h2 class="custom-header">Individual Rocks</h2>
+                <div fxLayoutGap="20px">
+                    <div fxFlex="50">
+                        <h3 fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="mat-18 mr-4">person_pin</mat-icon>
+                            John
+                        </h3>
+                        <app-individual-rocks></app-individual-rocks>
+                    </div>
+
+                    <div fxFlex="50">
+                        <h3 fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="mat-18 mr-4">person_pin</mat-icon>
+                            Sarah
+                        </h3>
+                        <app-individual-rocks></app-individual-rocks>
+                    </div>
+                </div>
+            </div>
+            <!-- / ROCKS -->
+
+        </div>
+    </div>
+</div>

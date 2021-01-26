@@ -1,0 +1,69 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 " fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Clients</span>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">New Client</span>
+            </div>
+            <div class="h1 mt-16">New Client</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+
+        <div class="mb-24" fxLayout="column" fxLayoutAlign="start">
+
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{client.name}}</mat-card-title>
+                    <mat-card-subtitle>Client</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="pl-20 pt-20">
+                    <div class="mb-40"><strong class="mr-20">Mobile :</strong> {{client.mobile || " _______ "}}</div>
+                    <div class="mb-40"><strong class="mr-20">Email :</strong> {{client.email || " _______ "}}</div>
+                    <div class="mb-40"><strong class="mr-20">Tel :</strong> {{client.tel || " _______ "}}</div>
+                    <div class="mb-40">
+                        <strong class="mr-20">Status : </strong>
+
+                        <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="30">
+                            <mat-label>Status</mat-label>
+                            <mat-select [(ngModel)]="client.type" name="type">
+                                <mat-option *ngFor="let type of customerTypeEnum" [value]="type">
+                                    {{type}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-40">
+                        <strong class="mr-20">Note :</strong>
+
+                        <mat-form-field appearance="outline" fxFlex="100" fxFlex.gt-md="30">
+                            <mat-label>Note</mat-label>
+                            <textarea
+                                matInput
+                                name="notes"
+                                [(ngModel)]="client.notes" rows="6">
+                            </textarea>
+                        </mat-form-field>
+
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="pl-68">
+                    <button mat-raised-button color="accent" (click)="save()">SAVE</button>
+                    <button mat-raised-button [routerLink]="['/clients']">CLOSE</button>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+
+    </div>
+</div>

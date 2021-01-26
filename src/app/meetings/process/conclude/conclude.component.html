@@ -1,0 +1,68 @@
+<div fxLayout="row" fxLayoutGap="20px">
+
+    <!-- ISD LIST -->
+    <div fxFlex="50">
+
+        <div class="example-container">
+            <h3 class="ids-header">To-do</h3>
+            <div class="example-list">
+                <div *ngFor="let item of inprogress" class="box">
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <img class="img-acc" src="assets/images/avatars/Velazquez.jpg">
+                        <div class="acc-name">{{item}}</div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="ml-12 mr-12">low_priority</mat-icon>
+                        <mat-icon>how_to_reg</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-container">
+            <h3 class="ids-header">Resolved issues</h3>
+            <div class="example-list">
+                <div *ngFor="let item of inprogress" class="box">
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <img class="img-acc" src="assets/images/avatars/Velazquez.jpg">
+                        <div class="acc-name">{{item}}</div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <mat-icon class="ml-12 mr-12">low_priority</mat-icon>
+                        <mat-icon>how_to_reg</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- / ISD LIST -->
+
+    <!-- PAN -->
+    <div fxFlex="50">
+        <div class="pan">
+            <h4 class="pan-header">Ratings (1 - 10)</h4>
+
+            <div class="box rating" *ngFor="let person of persons">
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <img class="img-acc" src="assets/images/avatars/Velazquez.jpg">
+                    <div class="acc-name">{{person}}</div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <input mat-input class="e-input" />
+                </div>
+            </div>
+
+            <div class="action-buttons mt-8">
+                <div></div>
+                <button mat-raised-button color="primary">
+                    <mat-icon>check</mat-icon>
+                    The meeting ends
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- PAN -->
+
+</div>

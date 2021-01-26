@@ -1,0 +1,65 @@
+<!-- CONTENT -->
+<div class="content ">
+
+    <!-- LIST -->
+    <div class="p-24" [hidden]="currentView != 'list'">
+        <div class="e-card" fxLayout="row" fxLayoutGap="20px">
+            <div class="e-card-sub" fxLayout="column" fxFlex="33">
+
+                <div class="body" fxLayout="column">
+                    <div class="dep">
+                        Accounting
+                    </div>
+                    <div class="dep">
+                        <mat-icon class="e-icon s-58">account_balance</mat-icon>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button mat-button color="accent" (click)="currentView = 'micro'" >Start</button>
+                </div>
+            </div>
+
+            <div class="e-card-sub" fxLayout="column" fxFlex="33">
+
+                <div class="body" fxLayout="column">
+                    <div class="dep">
+                        Marketing
+                    </div>
+                    <div class="dep">
+                        <mat-icon class="e-icon s-58">pages</mat-icon>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button mat-button color="accent" (click)="currentView = 'micro'">Start</button>
+                </div>
+            </div>
+
+            <div class="e-card-sub" fxLayout="column" fxFlex="33">
+
+                <div class="body" fxLayout="column">
+                    <div class="dep">
+                        Support
+                    </div>
+                    <div class="dep">
+                        <mat-icon class="e-icon s-58">contact_support</mat-icon>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button mat-button color="accent" (click)="currentView = 'micro'">Start</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- / LIST -->
+
+    <!-- MICRO -->
+    <div *ngIf="currentView == 'micro'">
+        <app-micro (onBackChange)="onBackChange($event)"></app-micro>
+    </div>
+    <!-- / MICRO -->
+
+</div>

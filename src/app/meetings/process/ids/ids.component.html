@@ -1,0 +1,93 @@
+<div fxLayout="column">
+    <!-- HEADER -->
+    <div class="e-header">
+        <mat-checkbox class="mr-8" [checked]="true" (change)="onWeeklyIssueCheckboxChange($event)">Weekly issues</mat-checkbox>
+        <mat-checkbox [checked]="true" (change)="onQuarterlyIssueCheckboxChange($event)">Quarterly issues</mat-checkbox>
+        <!-- HEADER -->
+    </div>
+    <div fxLayout="row" fxLayoutGap="20px">
+
+        <!-- ISD LIST -->
+        <div cdkDropListGroup fxFlex="50">
+
+            <div class="example-container">
+                <h3 class="ids-header">In-progress</h3>
+                <div
+                    cdkDropList
+                    #todoList="cdkDropList"
+                    [cdkDropListData]="inprogress"
+                    [cdkDropListConnectedTo]="[doneList]"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                    <div *ngFor="let item of inprogress" cdkDrag class="box">
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <img class="img-acc" src="assets/images/avatars/Velazquez.jpg">
+                            <div class="acc-name">{{item}}</div>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="ml-12 mr-12">low_priority</mat-icon>
+                            <mat-icon>how_to_reg</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3 class="ids-header">Pending</h3>
+                <div
+                    cdkDropList
+                    #doneList="cdkDropList"
+                    [cdkDropListData]="done"
+                    [cdkDropListConnectedTo]="[todoList]"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+
+                    <div *ngFor="let item of done" cdkDrag class="box">
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <img class="img-acc" src="assets/images/avatars/Velazquez.jpg">
+                            <div class="acc-name">{{item}}</div>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon class="ml-12 mr-12">low_priority</mat-icon>
+                            <mat-icon>how_to_reg</mat-icon>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- / ISD LIST -->
+
+        <!-- PAN -->
+        <div fxFlex="50">
+            <div class="pan">
+                <h4 class="pan-header">Acheive 20 proposal</h4>
+
+                <mat-form-field appearance="outline" fxFlex="100">
+                    <mat-label>Textarea</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+
+                <div class="action-buttons">
+                    <button mat-stroked-button>
+                        <mat-icon>how_to_reg</mat-icon>
+                        To-do
+                    </button>
+                    <button mat-stroked-button>
+                        <mat-icon>check</mat-icon>
+                        Resolve
+                    </button>
+                </div>
+
+                <div class="owner">
+                    <div class="labl">Owner:</div>
+                    <div class="name">Mazen farah</div>
+                </div>
+
+            </div>
+        </div>
+        <!-- PAN -->
+
+    </div>
+</div>

@@ -1,0 +1,25 @@
+mat-table.mat-table * {
+    font-size: 12px;
+}
+
+mat-header-row {
+    min-height: 40px;
+}
+
+mat-cell:first-child {
+    width: 70px;
+    max-width: 70px;
+}
+
+mat-header-cell:first-child {
+    width: 70px;
+    max-width: 70px;
+}
+
+.steps-value {
+    padding: 5px 11px;
+    background: #374061;
+    border-radius: 3px;
+    font-size: 18px;
+    margin-right: 10px;
+}

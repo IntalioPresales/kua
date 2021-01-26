@@ -1,0 +1,100 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 " fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Meeting</span>
+            </div>
+            <div class="h1 mt-16">Meeting</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+        <div fxLayout="row" fxLayoutGap="20px">
+
+            <!-- SIDEBAR -->
+            <div fxLayout="column" fxFlex="220px">
+                <div class="time" fxLayout="column">
+                    <div class="total"> {{timeElapsed}} <small>m</small></div>
+                    <div class="unit-time">
+                        <countdown #cd [config]="countConfig"></countdown>
+                        <!-- 0:05:0 -->
+                    </div>
+                </div>
+
+                <div class="menu" fxLayout="column" fxLayoutAlign="start start">
+
+                    <div class="navigation pt-20" fxLayout="row" fxLayoutAlign="space-between center" [routerLink]="['/meetings','segue']" [routerLinkActive]="['active']">
+                        <div class="nav-name " fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon>play_arrow</mat-icon>
+                            <div>Segue</div>
+                        </div>
+                        <div class="timer">5m</div>
+                    </div>
+
+                    <div class="navigation" [routerLink]="['/meetings','score_card']" [routerLinkActive]="['active']" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div class="nav-name" fxLayout="row" fxLayoutAlign="start center">
+                            <mat-icon>play_arrow</mat-icon>
+                            Scorecard
+                        </div>
+                        <div class="timer">5m</div>
+                    </div>
+
+                    <div class="navigation" [routerLink]="['/meetings','rocks_review']" [routerLinkActive]="['active']" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div class="nav-name">
+                            <mat-icon>play_arrow</mat-icon>
+                            Rock Review
+                        </div>
+                        <div class="timer">5m</div>
+                    </div>
+
+                    <div class="navigation" [routerLink]="['/meetings','people_headlines']" [routerLinkActive]="['active']" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div class="nav-name">
+                            <mat-icon>play_arrow</mat-icon>
+                            People headlines
+                        </div>
+                        <div class="timer">5m</div>
+                    </div>
+
+                    <div class="navigation" [routerLink]="['/meetings','todo']" [routerLinkActive]="['active']" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div class="nav-name">
+                            <mat-icon>play_arrow</mat-icon>
+                            Todo list
+                        </div>
+                        <div class="timer">5m</div>
+                    </div>
+
+                    <div class="navigation" [routerLink]="['/meetings','ids']" [routerLinkActive]="['active']" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div class="nav-name">
+                            <mat-icon>play_arrow</mat-icon>
+                            IDS
+                        </div>
+                        <div class="timer">60m</div>
+                    </div>
+
+                    <div class="navigation pb-20" [routerLink]="['/meetings','conclude']" [routerLinkActive]="['active']" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div class="nav-name">
+                            <mat-icon>play_arrow</mat-icon>
+                            Conclude
+                        </div>
+                        <div class="timer">5m</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- SIDEBAR -->
+
+            <!-- CONTENT -->
+            <div fxFlex="1 0 auto" class="width0">
+                <router-outlet></router-outlet>
+            </div>
+            <!-- CONTENT -->
+
+        </div>
+    </div>
+</div>

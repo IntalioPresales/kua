@@ -1,0 +1,126 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 " fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Unique Ability</span>
+            </div>
+            <div class="h1 mt-16">Unique Ability</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+
+
+        <mat-tab-group>
+            <mat-tab label="Activity Inventory">
+
+                <div class="example-container pt-8" fxLayout="row">
+
+                    <mat-table #table [dataSource]="dataSource" fxFlex="65">
+
+                        <!-- POSITION -->
+                        <ng-container matColumnDef="position">
+                            <mat-header-cell *matHeaderCellDef fxFlex="15"></mat-header-cell>
+                            <mat-cell *matCellDef="let element;index as i;" fxFlex="15">
+                                <mat-icon class="mr-12" style="font-size: 22px;" [ngStyle]="{'color': element.category.color }">play_circle_filled</mat-icon>
+                                {{i + 1}}
+                            </mat-cell>
+                            <mat-footer-cell *matFooterCellDef fxFlex="15"> </mat-footer-cell>
+                        </ng-container>
+
+                        <!-- ACTIVITY -->
+                        <ng-container matColumnDef="activity">
+                            <mat-header-cell *matHeaderCellDef fxFlex="65"> Activity </mat-header-cell>
+                            <mat-cell *matCellDef="let element;" fxFlex="65">
+                                {{element.activity}}
+                            </mat-cell>
+                            <mat-footer-cell *matFooterCellDef fxFlex="65">
+                                <mat-form-field floatLabel="never" fxFlex="85">
+                                    <input matInput placeholder="Activity" [(ngModel)]="newElement.activity">
+                                </mat-form-field>
+                            </mat-footer-cell>
+                        </ng-container>
+
+                        <!-- CATEGORY -->
+                        <ng-container matColumnDef="category">
+                            <mat-header-cell *matHeaderCellDef fxFlex="20" fxLayoutAlign="center center"> Category </mat-header-cell>
+                            <mat-cell *matCellDef="let element;" fxFlex="20" fxLayoutAlign="center center">
+                                {{element.category.symbol}}
+
+                            </mat-cell>
+                            <mat-footer-cell *matFooterCellDef fxFlex="20" fxLayoutAlign="center center">
+                                <mat-form-field floatLabel="never">
+                                    <mat-select [(value)]="newElement.category" placeholder="Select Category">
+                                        <mat-option>-- Select Category --</mat-option>
+                                        <mat-option value="John">U</mat-option>
+                                        <mat-option value="Steve">E</mat-option>
+                                        <mat-option value="Sarah">C</mat-option>
+                                        <mat-option value="Sarah">I</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </mat-footer-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        <mat-footer-row *matFooterRowDef="displayedColumns"></mat-footer-row>
+                    </mat-table>
+
+                    <div fxFlex="35" id="academy-courses">
+                        <div class="courses pl-16" fxLayout="column"
+                            fxLayoutAlign="center" [@animateStagger]="{value:'50'}">
+
+                            <div class="card mat-elevation-z1" *ngFor="let category of categories">
+                                <div class="header" fxLayout="row" fxLayoutAlign="start center"
+                                    [ngStyle]="{'background-color': category.color }">
+                                    {{category.symbol}} - {{category.name}}
+                                </div>
+                                <div class="content" fxLayout="column">
+                                    <div *ngFor="let entity of category.meta_data" class="entity">
+                                        {{entity}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Activity Snapshot">
+                <div id="snapshot" class="pt-12" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start start">
+
+                    <div class="card mat-elevation-z1" *ngFor="let dist of categoriesDistribution" fxFlex="48">
+                        <div class="header" fxLayout="row" fxLayoutAlign="space-between center"
+                            [ngStyle]="{'background-color': dist.category.color }">
+                            <div class="category-name">
+                                {{dist.category.name}} Activities
+                            </div>
+                            <div class="percentage">
+                                {{dist.percentage}} %
+                            </div>
+                        </div>
+                        <div class="content" fxLayout="column">
+                            <div *ngFor="let activity of dist.values" class="entity">
+                                {{activity.activity}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </mat-tab>
+            <mat-tab label="Action plan">
+                <div class="p-24">
+                    <app-activity-tab></app-activity-tab>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+
+        <!-- <h1 class="custom-header">Activity Inventory</h1> -->
+
+    </div>
+</div>

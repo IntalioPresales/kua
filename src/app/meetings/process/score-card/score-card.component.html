@@ -1,0 +1,299 @@
+<!-- <div class="example-container mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="name" sticky>
+            <th mat-header-cell *matHeaderCellDef>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div style="width: 120px;">Acc</div>
+                    <div style="width: 20px;">Me.</div>
+                    <div style="width: 50px;">Goal</div>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element;">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+
+                    <div style="width: 120px;" fxLayout="row" fxLayoutAlign="start center">
+                        <img class="acc" src="assets/images/avatars/Velazquez.jpg">
+                        {{element.name}}
+                    </div>
+                    <div style="width: 20px;"> {{element.measure}}</div>
+                    <div style="width: 50px;"> {{element.goal}}</div>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="measure" sticky>
+            <th mat-header-cell *matHeaderCellDef> Me. </th>
+            <td mat-cell *matCellDef="let element;"> {{element.measure}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="goal" sticky>
+            <th mat-header-cell *matHeaderCellDef> Goal </th>
+            <td mat-cell *matCellDef="let element;">
+                <div class="pl-8 pr-8" fxLayout="row" fxLayoutAlign="space-between start">
+                    <div>{{element.measure}}</div>
+                    <div> {{element.goal}}</div>
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="1">
+            <th mat-header-cell *matHeaderCellDef> 1 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="2">
+            <th mat-header-cell *matHeaderCellDef> 2 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="3">
+            <th mat-header-cell *matHeaderCellDef> 3 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="4">
+            <th mat-header-cell *matHeaderCellDef> 4 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="5">
+            <th mat-header-cell *matHeaderCellDef> 5 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="6">
+            <th mat-header-cell *matHeaderCellDef> 6 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="7">
+            <th mat-header-cell *matHeaderCellDef> 7 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="8">
+            <th mat-header-cell *matHeaderCellDef> 8 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="9">
+            <th mat-header-cell *matHeaderCellDef> 9 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="10">
+            <th mat-header-cell *matHeaderCellDef> 10 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="11">
+            <th mat-header-cell *matHeaderCellDef> 11 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="12">
+            <th mat-header-cell *matHeaderCellDef> 12 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="13">
+            <th mat-header-cell *matHeaderCellDef> 13 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div> -->
+
+
+<div class="example-container">
+    <table class="mat-elevation-z2" mat-table [dataSource]="dataSource">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name" sticky>
+            <th mat-header-cell *matHeaderCellDef>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div style="width: 50px;">Acc</div>
+                    <div style="width: 100px;">Me.</div>
+                    <div style="width: 50px;">Goal</div>
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element;">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+
+                    <div style="width: 50px;" fxLayout="row" fxLayoutAlign="start center">
+                        <!-- <img class="acc" src="assets/images/avatars/Velazquez.jpg"> -->
+                        {{element.acc}}
+                    </div>
+                    <div style="width: 100px;"> {{element.name}}</div>
+                    <div style="width: 50px;"> {{element.goal}}</div>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="goal" sticky>
+            <th mat-header-cell *matHeaderCellDef> Goal </th>
+            <td mat-cell *matCellDef="let element;">
+                <div class="pl-8 pr-8" fxLayout="row" fxLayoutAlign="space-between start">
+                    <div>{{element.measure}}</div>
+                    <div> {{element.goal}}</div>
+                </div>
+            </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="chart" sticky>
+            <th mat-header-cell *matHeaderCellDef> Chart</th>
+            <td mat-cell *matCellDef="let element;">
+                <div style="height: 40px; width:100px;">
+                    <ngx-charts-area-chart
+                        [scheme]="colorScheme"
+                        [legend]="legend"
+                        [showXAxisLabel]="showXAxisLabel"
+                        [showYAxisLabel]="showYAxisLabel"
+                        [xAxis]="xAxis"
+                        [yAxis]="yAxis"
+                        [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel"
+                        [timeline]="timeline"
+                        [results]="multi">
+                    </ngx-charts-area-chart>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="1">
+            <th mat-header-cell *matHeaderCellDef> 1 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="2">
+            <th mat-header-cell *matHeaderCellDef> 2 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="3">
+            <th mat-header-cell *matHeaderCellDef> 3 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="4">
+            <th mat-header-cell *matHeaderCellDef> 4 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="5">
+            <th mat-header-cell *matHeaderCellDef> 5 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="6">
+            <th mat-header-cell *matHeaderCellDef> 6 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="7">
+            <th mat-header-cell *matHeaderCellDef> 7 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="8">
+            <th mat-header-cell *matHeaderCellDef> 8 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="9">
+            <th mat-header-cell *matHeaderCellDef> 9 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="10">
+            <th mat-header-cell *matHeaderCellDef> 10 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="11">
+            <th mat-header-cell *matHeaderCellDef> 11 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="12">
+            <th mat-header-cell *matHeaderCellDef> 12 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="13">
+            <th mat-header-cell *matHeaderCellDef> 13 </th>
+            <td mat-cell *matCellDef="let element;">
+                <input [value]="element.symbol">
+            </td>
+        </ng-container>
+
+
+        <!-- Star Column -->
+        <!-- <ng-container matColumnDef="4" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element;">
+            <mat-icon>more_vert</mat-icon>
+        </td>
+    </ng-container> -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

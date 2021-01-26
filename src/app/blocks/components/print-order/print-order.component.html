@@ -1,0 +1,19 @@
+<div id="print-section" style="display:none;">
+
+    <div style="margin-top:50px;">
+        <h2> {{order.customer}}</h2>
+    </div>
+    <div>Order Ref : {{ order.id}}</div>
+    <div>Order Status : {{ order.status}}</div>
+    <div>Order Notes : {{ order.notes}}</div>
+
+</div>
+
+<button
+    style="display:none"
+    #button
+    printSectionId="print-section"
+    printTitle="eStores"
+    [printStyle]="{h1 : {'color': 'red'}, h2 : {'border': 'solid 1px'}}"
+    ngxPrint>
+</button>

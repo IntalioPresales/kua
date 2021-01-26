@@ -1,0 +1,71 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 " fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">Macro map</span>
+            </div>
+            <div class="h1 mt-16">Macro map</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+
+        <div class="e-card" fxLayout="row" fxLayoutGap="20px">
+            <div class="e-card-sub" fxLayout="column" fxFlex="33">
+
+                <div class="body" fxLayout="column">
+                    <div class="dep">
+                        Accounting
+                    </div>
+                    <div class="dep">
+                        <mat-icon class="e-icon s-58">account_balance</mat-icon>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button mat-button color="accent" [routerLink]="['/micro_map','micro']">Start</button>
+                </div>
+            </div>
+
+            <div class="e-card-sub" fxLayout="column" fxFlex="33">
+
+                <div class="body" fxLayout="column">
+                    <div class="dep">
+                        Marketing
+                    </div>
+                    <div class="dep">
+                        <mat-icon class="e-icon s-58">pages</mat-icon>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button mat-button color="accent" [routerLink]="['/micro_map','micro']">Start</button>
+                </div>
+            </div>
+
+            <div class="e-card-sub" fxLayout="column" fxFlex="33">
+
+                <div class="body" fxLayout="column">
+                    <div class="dep">
+                        Support
+                    </div>
+                    <div class="dep">
+                        <mat-icon class="e-icon s-58">contact_support</mat-icon>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <button mat-button color="accent" [routerLink]="['/micro_map','micro']">Start</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

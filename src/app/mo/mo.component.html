@@ -1,0 +1,29 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column">
+
+    <!-- HEADER -->
+    <div class="header accent p-24 " fxLayout="row" fxLayoutAlign="start center">
+        <div fxLayout="column" fxLayoutAlign="center start">
+            <div class="black-fg" fxLayout="row" fxLayoutAlign="start center">
+                <mat-icon class="secondary-text s-18">home</mat-icon>
+                <mat-icon class="secondary-text s-16">chevron_right</mat-icon>
+                <span class="secondary-text">M.O</span>
+            </div>
+            <div class="h1 mt-16">M.O</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <mat-tab-group>
+            <mat-tab label="Macro">
+                <app-macro></app-macro>
+            </mat-tab>
+            <mat-tab label="Micro">
+                <app-list></app-list>
+            </mat-tab>
+        </mat-tab-group>
+
+    </div>
+</div>

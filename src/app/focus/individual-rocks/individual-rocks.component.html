@@ -1,0 +1,13 @@
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of movies; index as i;" cdkDrag>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon style="color: #777;font-size: 20px;" class="mr-8" cdkDragHandle>reorder</mat-icon>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            {{movie}}
+        </div>
+        <div>
+            <mat-slide-toggle class="pl-8" [checked]="i == 0 || i == 1"></mat-slide-toggle>
+            <!-- <mat-icon class="mat-18" [ngClass]="{'green-500-fg': i == 0 || i == 2}">check</mat-icon> -->
+        </div>
+    </div>
+</div>
